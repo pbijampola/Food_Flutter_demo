@@ -1,6 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_equal_for_default_values, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:foodrecipe/main_page.dart';
+import 'package:foodrecipe/register_page.dart';
 
  class LoginPage extends StatefulWidget {
    LoginPage({Key? key}) : super(key: key);
@@ -9,7 +11,8 @@ import 'package:flutter/material.dart';
    State<LoginPage> createState() => _LoginPageState();
  }
  
- class _LoginPageState extends State<LoginPage> {
+ class _LoginPageState extends State<LoginPage> 
+ {
    @override
    Widget build(BuildContext context) {
      return Scaffold(
@@ -87,10 +90,15 @@ import 'package:flutter/material.dart';
                   child: Center(
                     child: GestureDetector(
                       // onTap:
-                      child: Text("Sign In",
-                      style: TextStyle(color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => MainPage()));
+                        },
+                        child: Text("Sign In",
+                        style: TextStyle(color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),),
+                      ),
                     ),
                   ),
                 ),
@@ -103,9 +111,14 @@ import 'package:flutter/material.dart';
                   children: [
                     Text("Do not have account!",
                     style: TextStyle(fontSize: 13,),),
-                    Text(" Register Here",
-                    style: TextStyle(fontSize: 13,
-                    color:Colors.deepOrange),)
+                    GestureDetector(
+                      child: Text(" Register Here",
+                      style: TextStyle(fontSize: 13,
+                      color:Colors.deepOrange),),
+                       onTap: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder:( BuildContext context)=>RegisterPage()));
+                      },
+                    )
                   ],
                 )
             ],
@@ -113,4 +126,6 @@ import 'package:flutter/material.dart';
         )),
      );
    }
+   
+     
  }
