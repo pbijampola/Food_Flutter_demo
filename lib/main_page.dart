@@ -1,5 +1,11 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
-import 'package:foodrecipe/mysquare.dart';
+import 'package:foodrecipe/pages/home_page.dart';
+import 'package:foodrecipe/pages/kitchen_page.dart';
+import 'package:foodrecipe/pages/profile_page.dart';
+import 'package:foodrecipe/pages/search_page.dart';
+import 'package:foodrecipe/pages/today_page.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key? key}) : super(key: key);
@@ -9,15 +15,16 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
+  // navigate around the bottom naviagation
   int _SelectedIndex=0;
 
+    //Different pages to naviagate
   static const List<Widget> _widgetOptions = <Widget>[
-    Text("HOME"),
-    Text("SEARCH"),
-    Text("PROFILE"),
-    Text("TODAY"),
-    Text("KITCHEN")
+    HomePage(),
+    SearchPage(),
+    ProfilePage(),
+    TodayPage(),
+    KitchenPage(),
   ];
 
   void _onItemTapped(int index){
@@ -27,22 +34,22 @@ class _MainPageState extends State<MainPage> {
   }
 
 //list of items
-final List _foodrecipes= [
-"ugali",
-"kachumbari",
-'maharage',
-'machungwa',
-'Makande'
+// final List _foodrecipes= [
+// "ugali",
+// "kachumbari",
+// 'maharage',
+// 'machungwa',
+// 'Makande'
 
-];
+// ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
-        title: Text('Fast Food'),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.deepOrange,
+      //   title: Text('Fast Food'),
+      // ),
 
       bottomNavigationBar: 
       BottomNavigationBar(  
